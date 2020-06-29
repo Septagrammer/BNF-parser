@@ -1,5 +1,5 @@
-with open ("data.txt", "r") as myfile:
-    data=myfile.readlines()
+with open("data.txt", "r") as myfile:
+    data = myfile.readlines()
 
 servTokens = ['::=', '+', '|']
 
@@ -74,15 +74,17 @@ def preprocessTokens(tokens):
     return tokens
 
 
+def __main__():
+    tokens = preprocessTokens(getTokens(data))
+    strippedTokens = stripTokens(tokens)
+    rules = []
+    for set in strippedTokens:
+        rules += makeRulesFromSet(set)
+    file = open("d.txt", "a")
+    file.truncate(0)
+    for index, rule in enumerate(rules):
+        file.write(str(index) + '  ' + rule + '\n')
+    file.close()
+git add
 
-
-tokens = preprocessTokens(getTokens(data))
-strippedTokens = stripTokens(tokens)
-rules = []
-for set in strippedTokens:
-    rules += makeRulesFromSet(set)
-file = open("d.txt", "a")
-file.truncate(0)
-for index, rule in enumerate(rules):
-    file.write(str(index) + '  ' + rule + '\n')
-file.close()
+__main__()
