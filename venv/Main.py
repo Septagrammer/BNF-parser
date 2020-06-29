@@ -85,6 +85,7 @@ def __main__():
     for index, rule in enumerate(rules):
         file.write(str(index) + '  ' + rule + '\n')
     file.close()
-git add
+
+
 
 __main__()
